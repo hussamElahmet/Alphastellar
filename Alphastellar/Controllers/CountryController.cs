@@ -19,15 +19,15 @@ namespace Alphastellar.Controllers
     {
         private readonly CountryInterface _countryRepository;
 
-        public CountryController(CountryInterface ountryInterface)
+        public CountryController(CountryInterface countryInterface)
         {
-            _countryRepository = ountryInterface;
+            _countryRepository = countryInterface;
         }
         // GET: api/<Country>
         [HttpGet]
-        public IEnumerable<Countries> Get()
+        public List<Countries> Get()
         {
-            IEnumerable<Countries> countries = _countryRepository.AllCountries.ToList();
+            List<Countries> countries = _countryRepository.AllCountries.ToList();
             return countries;
         }
 

@@ -5,7 +5,7 @@ namespace Alphastellar.IBll
 {
     public interface CountryInterface
     {
-        IEnumerable<Countries> AllCountries { get; }
+        List<Countries> AllCountries { get; }
 
          Countries GetCountryById(int countryId);
     }

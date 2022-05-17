@@ -17,7 +17,7 @@ namespace Alphastellar.DataAccess
         }
 
         //public IEnumerable<Countries> getCountriesList => _context.Countries;
-        public IEnumerable<Countries> AllCountries => _context.Countries;
+        public List<Countries> AllCountries => _context.Countries.ToList();
 
 
         public Countries GetCountryById(int countryId)
