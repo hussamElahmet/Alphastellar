@@ -17,9 +17,9 @@ namespace Alphastellar.Controllers
     [ApiController]
     public class CountryController : ControllerBase
     {
-        private readonly CountryInterface _countryRepository;
+        private readonly Ibook _countryRepository;
 
-        public CountryController(CountryInterface countryInterface)
+        public CountryController(Ibook countryInterface)
         {
             _countryRepository = countryInterface;
         }

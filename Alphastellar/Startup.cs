@@ -39,7 +39,7 @@ namespace Alphastellar
          
             services.AddControllersWithViews();
             services.AddSession();
-            services.AddScoped<CountryInterface, CountryDAL>();
+            services.AddScoped<Ibook, CountryDAL>();
 
         }
 

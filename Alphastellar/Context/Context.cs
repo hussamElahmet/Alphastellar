@@ -15,8 +15,9 @@ namespace Alphastellar.DataAccess
         }
         public  DbSet<Countries> Countries { get; set; }
         public  DbSet<Holidays> Holidays { get; set; }
-     
-      
+        public  DbSet<Book> Book { get; set; }
+
+
     }
 
 }
