@@ -19,6 +19,7 @@ namespace Alphastellar.DataAccess
         //public IEnumerable<Countries> getCountriesList => _context.Countries;
         public IEnumerable<Countries> AllCountries => _context.Countries;
 
+
         public Countries GetCountryById(int countryId)
         {
             return _context.Countries.Include(h => h.CountryHolidays).FirstOrDefault(c => c.CountryId == countryId);

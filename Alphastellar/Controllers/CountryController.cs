@@ -19,9 +19,9 @@ namespace Alphastellar.Controllers
     {
         private readonly CountryInterface _countryRepository;
 
-        public CountryController(CountryInterface rep)
+        public CountryController(CountryInterface ountryInterface)
         {
-            _countryRepository = rep;
+            _countryRepository = ountryInterface;
         }
         // GET: api/<Country>
         [HttpGet]

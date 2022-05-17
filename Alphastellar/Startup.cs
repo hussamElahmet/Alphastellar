@@ -1,4 +1,5 @@
 using Alphastellar.DataAccess;
+using Alphastellar.IBll;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -37,6 +38,8 @@ namespace Alphastellar
             services.AddDbContext<Context>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
          
             services.AddControllersWithViews();
+            services.AddSession();
+            services.AddScoped<CountryInterface, CountryDAL>();
 
         }
 
@@ -53,7 +56,7 @@ namespace Alphastellar
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseSession();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

@@ -13,8 +13,8 @@ namespace Alphastellar.DataAccess
         public Context(DbContextOptions<Context> options) : base(options)
         {
         }
-        public virtual DbSet<Countries> Countries { get; set; }
-        public virtual DbSet<Holidays> Holidays { get; set; }
+        public  DbSet<Countries> Countries { get; set; }
+        public  DbSet<Holidays> Holidays { get; set; }
      
       
     }
