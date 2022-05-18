@@ -40,6 +40,12 @@ namespace Alphastellar
             services.AddControllersWithViews();
             services.AddSession();
             services.AddScoped<Ibook, CountryDAL>();
+            //cors disable - configureservices
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder => builder.AllowAnyOrigin());
+                });
+
 
         }
 
@@ -56,6 +62,8 @@ namespace Alphastellar
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            //cores Configure
+            app.UseCors();
             app.UseSession();
             app.UseAuthorization();
 
@@ -63,6 +71,12 @@ namespace Alphastellar
             {
                 endpoints.MapControllers();
             });
+            var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+            app.UseCors(MyAllowSpecificOrigins);
+            app.UseCors(options =>
+   options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+
         }
     }
 }

@@ -23,33 +23,29 @@ namespace Alphastellar.DataProcess
             return TotalPrice;
         }
         // buisness days function 
-        public int BusinessDaysGet(pmBook inputModel)
+        public int BusinessDaysGet(pmBook param)
         {
             int TotalBusinessDays = 0;
-
-            var holidays = inputModel.Country.CountryHolidays.Select(s => s.HolidayDate);
-
-            var dayDifference = (int)inputModel.To.Subtract(inputModel.From).TotalDays;
-
-            for (var date = inputModel.From; date <= inputModel.To; date = date.AddDays(1))
+            // get holidays date array to exclude it from total days 
+            var holidays = param.Country.CountryHolidays.Select(s => s.HolidayDate);
+            //deffirence between from  and to date 
+            for (var date = param.From; date <= param.To; date = date.AddDays(1))
             {
-                if(inputModel.Country.CountryId==1)
+                if(param.Country.CountryId==1)
                 {
                     if (date.DayOfWeek != DayOfWeek.Saturday
                   && date.DayOfWeek != DayOfWeek.Sunday
                   && !holidays.Contains(date))
                         TotalBusinessDays++;
 
-                }else if(inputModel.Country.CountryId==2)
+                }else if(param.Country.CountryId==2)
                 {
                     if (date.DayOfWeek != DayOfWeek.Friday
                        && date.DayOfWeek != DayOfWeek.Saturday
                        && !holidays.Contains(date))
                         TotalBusinessDays++;
                 }
-           
             }
-
             return TotalBusinessDays;
         }
 
